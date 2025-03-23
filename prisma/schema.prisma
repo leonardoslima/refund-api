@@ -36,7 +36,7 @@ model User {
 }
 
 model Refunds {
-  id       String   @id @default(cuid())
+  id       String   @id @default(uuid())
   name     String
   amount   Float
   category Category
