@@ -1,11 +1,14 @@
-import express from "express";
-import cors from "cors";
-import { errorHandling } from "./middlewares/error-handling";
+import express from "express"
+import cors from "cors"
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+import { routes } from "./routes"
+import { errorHandling } from "./middlewares/error-handling"
 
-app.use(errorHandling);
+const app = express()
+app.use(cors())
+app.use(express.json())
 
-export { app };
+app.use(routes)
+app.use(errorHandling)
+
+export { app }
