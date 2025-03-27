@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
-import z from 'zod'
-import { ZodError } from 'zod'
+import z, { ZodError } from 'zod'
 
 import uploadConfig from "@/configs/upload"
 import { DiskStorage } from '@/providers/disk-storage'
@@ -29,7 +28,7 @@ class UploadsController {
             `Arquivo excede o tamanho máximo de ${uploadConfig.MAX_SIZE}MB`
           )
       })
-      .passthrough()
+        .passthrough()
 
       const file = fileSchema.parse(request.file)
       const filename = await diskStorage.saveFile(file.filename)

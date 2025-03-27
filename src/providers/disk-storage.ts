@@ -11,7 +11,6 @@ class DiskStorage {
     try {
       await fs.promises.access(tmpPath)
     } catch (error) {
-      await fs.promises.unlink(tmpPath)
       throw new Error(`Arquivo não encontrado: ${tmpPath}`)
     }
 
